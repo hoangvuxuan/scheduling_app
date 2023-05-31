@@ -1,0 +1,13 @@
+D:\c#\lap_lich\scheduling_app\calender\calender\bin\Debug\calender.exe.config
+D:\c#\lap_lich\scheduling_app\calender\calender\bin\Debug\calender.exe
+D:\c#\lap_lich\scheduling_app\calender\calender\bin\Debug\calender.pdb
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.csproj.AssemblyReference.cache
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.csproj.SuggestedBindingRedirects.cache
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.calender_form.resources
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.Properties.Resources.resources
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.csproj.GenerateResource.cache
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.csproj.CoreCompileInputs.cache
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.exe
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.pdb
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.daily_plan.resources
+D:\c#\lap_lich\scheduling_app\calender\calender\obj\Debug\calender.USER_CONTROL_A_Note.resources
