@@ -124,6 +124,7 @@
             this.Day_Time_Picker.Name = "Day_Time_Picker";
             this.Day_Time_Picker.Size = new System.Drawing.Size(310, 22);
             this.Day_Time_Picker.TabIndex = 0;
+            this.Day_Time_Picker.ValueChanged += new System.EventHandler(this.Day_Time_Picker_ValueChanged);
             // 
             // panel2
             // 
@@ -165,6 +166,7 @@
             this.BT_Last.TabIndex = 8;
             this.BT_Last.Text = "<<";
             this.BT_Last.UseVisualStyleBackColor = true;
+            this.BT_Last.Click += new System.EventHandler(this.BT_Last_Click);
             // 
             // BT_Next
             // 
@@ -238,7 +240,6 @@
             this.BT_Monday.TabIndex = 0;
             this.BT_Monday.Text = "MONDAY";
             this.BT_Monday.UseVisualStyleBackColor = true;
-            this.BT_Monday.Click += new System.EventHandler(this.BT_Monday_Click);
             // 
             // calender_form
             // 

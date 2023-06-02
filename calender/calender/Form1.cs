@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,22 +13,32 @@ namespace calender
 {
     public partial class calender_form : Form
     {
+        private List<List<Button>> matrix;
         public calender_form()
         {
+
+            #region properties
+            
+            #endregion
             InitializeComponent();
             load_Matrix();
+            add_Number_To_Matrix_By_Day(Day_Time_Picker.Value);
         }
 
         void load_Matrix()
         {
+            matrix = new List<List<Button>>();
+             
             Button old_btn = new Button() { Width = 0, Height = 0, Location = new Point(0, 0)};
             for(int i = 0; i < CONS.day_of_column; i++)
             {
+                matrix.Add(new List<Button>());
                 for(int j = 0; j < CONS.day_of_week; j++)
                 {
                     Button btn= new Button() { Width = CONS.date_btn_with, Height = CONS.date_btn_height};
                     btn.Location = new Point(old_btn.Location.X + old_btn.Width, old_btn.Location.Y);
                     Panel_Matrix.Controls.Add(btn);
+                    matrix[i].Add(btn);
 
                     old_btn = btn;
                 }
@@ -36,39 +47,106 @@ namespace calender
             }
         }
 
+        private List<string> day_Of_Week = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"  };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void BT_Today_Click(object sender, EventArgs e)
+        int day_Of_Month(DateTime date)
         {
+            switch (date.Month)
+            {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    return 31;
+                case 2:
+                    if(date.Year % 4 == 0)
+                    {
+                        return 29;
+                    }
+                    else
+                    {
+                        return 28;
+                    }
+                default:
+                    return 30;
 
+            }
+        }
+        void add_Number_To_Matrix_By_Day(DateTime date)
+        {
+            clear_Matrix_Value();
+            DateTime use_date = new DateTime(date.Year, date.Month, 1);
+            
+
+            int line = 0;
+            for(int i = 1; i <= day_Of_Month(date); i++)
+            {
+                int col = day_Of_Week.IndexOf(use_date.DayOfWeek.ToString());
+                Button btn = matrix[line][col];
+                btn.Text = i.ToString();
+                btn.Font = new Font(btn.Font.FontFamily, 18);
+               
+                if(col >= 6)
+                {
+                    line++;
+                } 
+
+                if(use_date.Year == date.Year && use_date.Month == date.Month && date.Day == use_date.Day)
+                {
+                    btn.BackColor = Color.Blue; 
+                    btn.ForeColor = Color.Yellow; 
+                }
+
+                if (use_date.Year == DateTime.Now.Year && use_date.Month == DateTime.Now.Month && DateTime.Now.Day == use_date.Day)
+                {
+                    btn.BackColor = Color.Green;
+                    btn.ForeColor = Color.LightYellow;
+                }
+                use_date = use_date.AddDays(1);
+
+                //MessageBox.Show(use_date.Date.ToString());
+            }
+            
+            
         }
 
-        private void BT_Monday_Click(object sender, EventArgs e)
+        void clear_Matrix_Value()
         {
+            for(int i  = 0; i < matrix.Count; i++)
+            {
+                for(int j = 0; j < matrix[i].Count; j++)
+                {
+                    Button btn = matrix[i][j];
+                    btn.Text = "";
+                    btn.BackColor = Color.White;
+                    btn.ForeColor = Color.Black;
+                }
+            }
+        }
 
+        private void Day_Time_Picker_ValueChanged(object sender, EventArgs e)
+        {
+            var date = sender as DateTimePicker;
+            add_Number_To_Matrix_By_Day(date.Value);
         }
 
         private void BT_Next_Click(object sender, EventArgs e)
         {
+            Day_Time_Picker.Value = Day_Time_Picker.Value.AddMonths(1);
+        }
 
+        private void BT_Last_Click(object sender, EventArgs e)
+        {
+            Day_Time_Picker.Value = Day_Time_Picker.Value.AddMonths(-1);
+
+        }
+
+        private void BT_Today_Click(object sender, EventArgs e)
+        {
+            Day_Time_Picker.Value = DateTime.Today;
         }
     }
 }
