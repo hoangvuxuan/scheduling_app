@@ -14,6 +14,9 @@ namespace calender
     public partial class calender_form : Form
     {
         private List<List<Button>> matrix;
+
+        private PLAN_DATA _job;
+        public PLAN_DATA Job { get => _job; set => _job = value; }
         public calender_form()
         {
 
@@ -48,6 +51,8 @@ namespace calender
         }
 
         private List<string> day_Of_Week = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"  };
+
+        
 
         int day_Of_Month(DateTime date)
         {
