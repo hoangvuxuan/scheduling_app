@@ -9,8 +9,8 @@ namespace calender
     [Serializable]
     public class PLAN_DATA
     {
-        private List<PLAN_ITEM> _job;
+        private List<PLAN_ITEM> _job_list;
 
-        internal List<PLAN_ITEM> Job { get => _job; set => _job = value; }
+        public List<PLAN_ITEM> Job_list { get { return _job_list; } set { _job_list = value; } }
     }
 }

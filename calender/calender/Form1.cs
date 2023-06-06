@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace calender
 {
@@ -15,8 +17,13 @@ namespace calender
     {
         private List<List<Button>> matrix;
 
+        private string _file_path = "data.xml";
+
         private PLAN_DATA _job;
+       
         public PLAN_DATA Job { get => _job; set => _job = value; }
+         
+        
         public calender_form()
         {
 
@@ -25,7 +32,47 @@ namespace calender
             #endregion
             InitializeComponent();
             load_Matrix();
+
             add_Number_To_Matrix_By_Day(Day_Time_Picker.Value);
+
+            try
+            {
+                set_default();
+
+                Deserialize_To_XML(_file_path);
+                MessageBox.Show("1");
+            }
+            catch
+            {
+                set_default();
+                MessageBox.Show("2");
+
+            }
+
+        }
+
+        void set_default()
+        {
+            Job = new PLAN_DATA();
+            Job.Job_list = new List<PLAN_ITEM>();
+            Job.Job_list.Add(new PLAN_ITEM()
+            {
+                Name = "thu nghiem",
+                Form_time = new Point(4, 0),
+                To_time = new Point(5, 9),
+                Status = PLAN_ITEM.Job_Status[0],
+                Date = DateTime.Now
+            });
+
+            Job.Job_list.Add(new PLAN_ITEM()
+            {
+                Name = "thu nghiem",
+                Form_time = new Point(4, 0),
+                To_time = new Point(5, 9),
+                Status = PLAN_ITEM.Job_Status[0],
+                Date = DateTime.Now
+            });
+
         }
 
         void load_Matrix()
@@ -152,6 +199,33 @@ namespace calender
         private void BT_Today_Click(object sender, EventArgs e)
         {
             Day_Time_Picker.Value = DateTime.Today;
+        }
+
+        private void Serialize_To_XML(object data, string file_path)
+        {
+            FileStream fs = new FileStream(file_path, FileMode.OpenOrCreate, FileAccess.Write); 
+            XmlSerializer sr = new XmlSerializer(typeof(PLAN_DATA));
+            sr.Serialize(fs, data);
+            MessageBox.Show("3");
+
+            fs.Close();
+
+        }
+
+        private object Deserialize_To_XML(string file_path)
+        {
+            FileStream fs = new FileStream(file_path, FileMode.Open, FileAccess.Read);
+            XmlSerializer sr = new XmlSerializer(typeof(PLAN_DATA));
+            object result = sr.Deserialize(fs);
+            fs.Close();
+            MessageBox.Show("4");
+
+            return result;
+        }
+
+        private void calender_form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Serialize_To_XML(Job, _file_path);
         }
     }
 }

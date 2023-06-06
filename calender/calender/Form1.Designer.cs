@@ -249,6 +249,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "calender_form";
             this.Text = "calender";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.calender_form_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

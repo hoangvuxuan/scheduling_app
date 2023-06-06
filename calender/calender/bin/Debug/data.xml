@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<PLAN_DATA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Job_list>
+    <PLAN_ITEM>
+      <Name>thu nghiem</Name>
+      <Form_time>
+        <X>4</X>
+        <Y>0</Y>
+      </Form_time>
+      <To_time>
+        <X>5</X>
+        <Y>9</Y>
+      </To_time>
+      <Status>DONE</Status>
+      <Date>2023-06-06T06:40:09.1623501+07:00</Date>
+    </PLAN_ITEM>
+    <PLAN_ITEM>
+      <Name>thu nghiem</Name>
+      <Form_time>
+        <X>4</X>
+        <Y>0</Y>
+      </Form_time>
+      <To_time>
+        <X>5</X>
+        <Y>9</Y>
+      </To_time>
+      <Status>DONE</Status>
+      <Date>2023-06-06T06:40:09.1623501+07:00</Date>
+    </PLAN_ITEM>
+  </Job_list>
+</PLAN_DATA>
