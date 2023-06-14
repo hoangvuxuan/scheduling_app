@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Panel_Note = new System.Windows.Forms.Panel();
+            this.BT_Last = new System.Windows.Forms.Button();
+            this.BT_Next = new System.Windows.Forms.Button();
             this.Date_Time_Picker_DP = new System.Windows.Forms.DateTimePicker();
+            this.Panel_Note = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MS_Item_Add_Note = new System.Windows.Forms.ToolStripMenuItem();
             this.MS_Item_Today = new System.Windows.Forms.ToolStripMenuItem();
-            this.BT_Next = new System.Windows.Forms.Button();
-            this.BT_Last = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,12 +51,25 @@
             this.panel1.Size = new System.Drawing.Size(963, 687);
             this.panel1.TabIndex = 0;
             // 
-            // Panel_Note
+            // BT_Last
             // 
-            this.Panel_Note.Location = new System.Drawing.Point(3, 38);
-            this.Panel_Note.Name = "Panel_Note";
-            this.Panel_Note.Size = new System.Drawing.Size(957, 643);
-            this.Panel_Note.TabIndex = 0;
+            this.BT_Last.Location = new System.Drawing.Point(257, 9);
+            this.BT_Last.Name = "BT_Last";
+            this.BT_Last.Size = new System.Drawing.Size(103, 23);
+            this.BT_Last.TabIndex = 3;
+            this.BT_Last.Text = "LAST DAY";
+            this.BT_Last.UseVisualStyleBackColor = true;
+            this.BT_Last.Click += new System.EventHandler(this.BT_Last_Click);
+            // 
+            // BT_Next
+            // 
+            this.BT_Next.Location = new System.Drawing.Point(675, 9);
+            this.BT_Next.Name = "BT_Next";
+            this.BT_Next.Size = new System.Drawing.Size(107, 23);
+            this.BT_Next.TabIndex = 2;
+            this.BT_Next.Text = "NEXT DAY";
+            this.BT_Next.UseVisualStyleBackColor = true;
+            this.BT_Next.Click += new System.EventHandler(this.BT_Next_Click);
             // 
             // Date_Time_Picker_DP
             // 
@@ -64,6 +77,14 @@
             this.Date_Time_Picker_DP.Name = "Date_Time_Picker_DP";
             this.Date_Time_Picker_DP.Size = new System.Drawing.Size(238, 22);
             this.Date_Time_Picker_DP.TabIndex = 1;
+            this.Date_Time_Picker_DP.ValueChanged += new System.EventHandler(this.Date_Time_Picker_DP_ValueChanged);
+            // 
+            // Panel_Note
+            // 
+            this.Panel_Note.Location = new System.Drawing.Point(3, 38);
+            this.Panel_Note.Name = "Panel_Note";
+            this.Panel_Note.Size = new System.Drawing.Size(957, 643);
+            this.Panel_Note.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -82,30 +103,14 @@
             this.MS_Item_Add_Note.Name = "MS_Item_Add_Note";
             this.MS_Item_Add_Note.Size = new System.Drawing.Size(96, 24);
             this.MS_Item_Add_Note.Text = "ADD NOTE";
+            this.MS_Item_Add_Note.Click += new System.EventHandler(this.MS_Item_Add_Note_Click);
             // 
             // MS_Item_Today
             // 
             this.MS_Item_Today.Name = "MS_Item_Today";
             this.MS_Item_Today.Size = new System.Drawing.Size(69, 24);
             this.MS_Item_Today.Text = "TODAY";
-            // 
-            // BT_Next
-            // 
-            this.BT_Next.Location = new System.Drawing.Point(675, 9);
-            this.BT_Next.Name = "BT_Next";
-            this.BT_Next.Size = new System.Drawing.Size(107, 23);
-            this.BT_Next.TabIndex = 2;
-            this.BT_Next.Text = "NEXT DAY";
-            this.BT_Next.UseVisualStyleBackColor = true;
-            // 
-            // BT_Last
-            // 
-            this.BT_Last.Location = new System.Drawing.Point(257, 9);
-            this.BT_Last.Name = "BT_Last";
-            this.BT_Last.Size = new System.Drawing.Size(103, 23);
-            this.BT_Last.TabIndex = 3;
-            this.BT_Last.Text = "LAST DAY";
-            this.BT_Last.UseVisualStyleBackColor = true;
+            this.MS_Item_Today.Click += new System.EventHandler(this.MS_Item_Today_Click);
             // 
             // daily_plan
             // 

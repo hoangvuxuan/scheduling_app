@@ -2,7 +2,7 @@
 <PLAN_DATA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Job_list>
     <PLAN_ITEM>
-      <Name>thu nghiem</Name>
+      <Name>j 2</Name>
       <Form_time>
         <X>4</X>
         <Y>0</Y>
@@ -11,11 +11,11 @@
         <X>5</X>
         <Y>9</Y>
       </To_time>
-      <Status>DONE</Status>
-      <Date>2023-06-06T06:40:09.1623501+07:00</Date>
+      <Status>DOING</Status>
+      <Date>2023-06-14T18:34:10.3022288+07:00</Date>
     </PLAN_ITEM>
     <PLAN_ITEM>
-      <Name>thu nghiem</Name>
+      <Name>j 3</Name>
       <Form_time>
         <X>4</X>
         <Y>0</Y>
@@ -25,7 +25,57 @@
         <Y>9</Y>
       </To_time>
       <Status>DONE</Status>
-      <Date>2023-06-06T06:40:09.1623501+07:00</Date>
+      <Date>2023-06-15T18:34:10.3022288+07:00</Date>
+    </PLAN_ITEM>
+    <PLAN_ITEM>
+      <Name>j 4</Name>
+      <Form_time>
+        <X>4</X>
+        <Y>0</Y>
+      </Form_time>
+      <To_time>
+        <X>5</X>
+        <Y>9</Y>
+      </To_time>
+      <Status>DONE</Status>
+      <Date>2023-06-13T18:34:10.3022288+07:00</Date>
+    </PLAN_ITEM>
+    <PLAN_ITEM>
+      <Name>j 5</Name>
+      <Form_time>
+        <X>4</X>
+        <Y>0</Y>
+      </Form_time>
+      <To_time>
+        <X>5</X>
+        <Y>9</Y>
+      </To_time>
+      <Status>DONE</Status>
+      <Date>2023-06-12T18:34:10.3022288+07:00</Date>
+    </PLAN_ITEM>
+    <PLAN_ITEM>
+      <Name>them viec 1</Name>
+      <Form_time>
+        <X>0</X>
+        <Y>0</Y>
+      </Form_time>
+      <To_time>
+        <X>0</X>
+        <Y>0</Y>
+      </To_time>
+      <Status>DONE</Status>
+      <Date>2023-06-14T00:00:00</Date>
+    </PLAN_ITEM>
+    <PLAN_ITEM>
+      <Form_time>
+        <X>0</X>
+        <Y>0</Y>
+      </Form_time>
+      <To_time>
+        <X>0</X>
+        <Y>0</Y>
+      </To_time>
+      <Date>2023-06-14T00:00:00</Date>
     </PLAN_ITEM>
   </Job_list>
 </PLAN_DATA>

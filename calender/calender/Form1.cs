@@ -39,13 +39,13 @@ namespace calender
             {
                 set_default();
 
-                Deserialize_To_XML(_file_path);
-                MessageBox.Show("1");
+                Job = Deserialize_To_XML(_file_path) as PLAN_DATA;
+                 
             }
             catch
             {
                 set_default();
-                MessageBox.Show("2");
+                 
 
             }
 
@@ -57,20 +57,64 @@ namespace calender
             Job.Job_list = new List<PLAN_ITEM>();
             Job.Job_list.Add(new PLAN_ITEM()
             {
-                Name = "thu nghiem",
+                Name = " j 1",
                 Form_time = new Point(4, 0),
                 To_time = new Point(5, 9),
-                Status = PLAN_ITEM.Job_Status[0],
+                Status = PLAN_ITEM.Job_Status[1],
                 Date = DateTime.Now
             });
 
             Job.Job_list.Add(new PLAN_ITEM()
             {
-                Name = "thu nghiem",
+                Name = " j 1.1",
+                Form_time = new Point(4, 0),
+                To_time = new Point(5, 9),
+                Status = PLAN_ITEM.Job_Status[1],
+                Date = DateTime.Now
+            });
+
+            Job.Job_list.Add(new PLAN_ITEM()
+            {
+                Name = " j 1.2",
+                Form_time = new Point(4, 0),
+                To_time = new Point(5, 9),
+                Status = PLAN_ITEM.Job_Status[1],
+                Date = DateTime.Now
+            });
+
+            Job.Job_list.Add(new PLAN_ITEM()
+            {
+                Name = "j 2",
+                Form_time = new Point(4, 0),
+                To_time = new Point(5, 9),
+                Status = PLAN_ITEM.Job_Status[1],
+                Date = DateTime.Now
+            });
+
+            Job.Job_list.Add(new PLAN_ITEM()
+            {
+                Name = "j 3",
                 Form_time = new Point(4, 0),
                 To_time = new Point(5, 9),
                 Status = PLAN_ITEM.Job_Status[0],
-                Date = DateTime.Now
+                Date = DateTime.Now.AddDays(1)
+            });
+
+            Job.Job_list.Add(new PLAN_ITEM()
+            {
+                Name = "j 4",
+                Form_time = new Point(4, 0),
+                To_time = new Point(5, 9),
+                Status = PLAN_ITEM.Job_Status[0],
+                Date = DateTime.Now.AddDays(-1)
+            });
+            Job.Job_list.Add(new PLAN_ITEM()
+            {
+                Name = "j 5",
+                Form_time = new Point(4, 0),
+                To_time = new Point(5, 9),
+                Status = PLAN_ITEM.Job_Status[0],
+                Date = DateTime.Now.AddDays(-2)
             });
 
         }
@@ -87,6 +131,7 @@ namespace calender
                 {
                     Button btn= new Button() { Width = CONS.date_btn_with, Height = CONS.date_btn_height};
                     btn.Location = new Point(old_btn.Location.X + old_btn.Width, old_btn.Location.Y);
+                    btn.Click += Btn_Click;
                     Panel_Matrix.Controls.Add(btn);
                     matrix[i].Add(btn);
 
@@ -95,6 +140,17 @@ namespace calender
 
                 old_btn = new Button() { Width = 0, Height = 0, Location = new Point(0, old_btn.Location.Y + CONS.date_btn_height) };
             }
+        }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty((sender as Button).Text))
+            {
+                return;
+            }
+            daily_plan daily = new daily_plan(new DateTime(Day_Time_Picker.Value.Year, Day_Time_Picker.Value.Month, Convert.ToInt32((sender as Button).Text)), Job);
+            
+            daily.ShowDialog();
         }
 
         private List<string> day_Of_Week = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"  };
@@ -206,7 +262,7 @@ namespace calender
             FileStream fs = new FileStream(file_path, FileMode.OpenOrCreate, FileAccess.Write); 
             XmlSerializer sr = new XmlSerializer(typeof(PLAN_DATA));
             sr.Serialize(fs, data);
-            MessageBox.Show("3");
+             
 
             fs.Close();
 
@@ -218,7 +274,7 @@ namespace calender
             XmlSerializer sr = new XmlSerializer(typeof(PLAN_DATA));
             object result = sr.Deserialize(fs);
             fs.Close();
-            MessageBox.Show("4");
+             
 
             return result;
         }
